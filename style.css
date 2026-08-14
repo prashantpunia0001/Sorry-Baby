@@ -1,1 +1,391 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #654553;
+    background:
+        radial-gradient(circle at 15% 20%, #ffffff 0 4%, transparent 5%),
+        radial-gradient(circle at 85% 80%, #ffffff 0 5%, transparent 6%),
+        linear-gradient(135deg, #fffaf8, #fff0f5, #fff8ee);
+    overflow-x: hidden;
+}
+
+/* =========================
+   FLOATING DECORATIONS
+========================= */
+
+body::before,
+body::after {
+    content: "🌹";
+    position: fixed;
+    font-size: 55px;
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+    animation: float 5s ease-in-out infinite;
+}
+
+body::before {
+    top: 8%;
+    left: 5%;
+}
+
+body::after {
+    bottom: 8%;
+    right: 5%;
+    animation-delay: 1.5s;
+}
+
+.floating {
+    position: fixed;
+    top: 12px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 12px;
+    opacity: 0.45;
+    z-index: 5;
+    animation: drift 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* =========================
+   SCREEN
+========================= */
+
+.screen {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    padding: 70px 22px 45px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+    animation: pageIn 0.7s ease;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.small {
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: clamp(36px, 10vw, 58px);
+    color: #9d536f;
+    margin: 10px 0 18px;
+}
+
+h2 {
+    font-size: clamp(25px, 7vw, 36px);
+    color: #8d5068;
+    margin-bottom: 22px;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* =========================
+   ROSE
+========================= */
+
+.rose {
+    font-size: 72px;
+    filter: drop-shadow(0 8px 10px #b77a8a33);
+    animation: roseFloat 3s ease-in-out infinite;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card,
+.shayari-card,
+.final-card {
+    width: min(100%, 420px);
+    padding: 28px 23px;
+    margin: 10px auto 20px;
+    background: #ffffffc9;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    box-shadow:
+        0 20px 50px #a86f7b25,
+        inset 0 0 25px #ffffffaa;
+    backdrop-filter: blur(10px);
+}
+
+.shayari-card {
+    max-height: 68vh;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.shayari-card h2 {
+    text-align: center;
+}
+
+.shayari-card p {
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.final-card {
+    background: #fffdf8e8;
+}
+
+/* =========================
+   I LOVE YOU PAGE
+========================= */
+
+#love h1 {
+    font-size: clamp(42px, 12vw, 70px);
+    margin-bottom: 20px;
+    animation: lovePulse 1.8s ease-in-out infinite;
+}
+
+#love .big {
+    font-size: 42px;
+}
+
+/* Names box */
+
+.names-card {
+    width: min(100%, 390px);
+    max-height: 55vh;
+    overflow-y: auto;
+    padding: 22px;
+    background: #ffffffd9;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    box-shadow:
+        0 20px 50px #a86f7b25,
+        inset 0 0 25px #ffffffaa;
+    backdrop-filter: blur(10px);
+    scrollbar-width: thin;
+}
+
+.names-card div {
+    padding: 9px 4px;
+    font-size: 17px;
+    animation: nameAppear 0.5s ease both;
+}
+
+/* Different timing for each name */
+
+.names-card div:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.names-card div:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.names-card div:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.names-card div:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.names-card div:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.names-card div:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.names-card div:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.names-card div:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+.names-card div:nth-child(9) {
+    animation-delay: 0.45s;
+}
+
+.names-card div:nth-child(10) {
+    animation-delay: 0.5s;
+}
+
+/* Final names */
+
+.last-name {
+    margin-top: 18px;
+    padding-top: 18px !important;
+    border-top: 1px solid #e8cbd5;
+    font-size: 20px !important;
+    color: #a05270;
+    line-height: 1.8;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    border: 0;
+    padding: 14px 26px;
+    margin: 7px 4px;
+    border-radius: 50px;
+    background: #ffffff;
+    color: #a05270;
+    font-family: inherit;
+    font-size: 16px;
+    box-shadow: 0 10px 25px #a86f7b30;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 14px 30px #a86f7b40;
+}
+
+button:active {
+    transform: scale(0.94);
+}
+
+/* =========================
+   ENDING
+========================= */
+
+.big {
+    font-size: 42px;
+    margin-bottom: 22px;
+    animation: roseFloat 3s ease-in-out infinite;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes roseFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(3deg);
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(8deg);
+    }
+}
+
+@keyframes drift {
+    0%,
+    100% {
+        transform: translateX(-10px);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes nameAppear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lovePulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .screen {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .floating {
+        font-size: 19px;
+        letter-spacing: 6px;
+    }
+
+    .shayari-card {
+        max-height: 64vh;
+    }
+
+    .names-card {
+        max-height: 52vh;
+        padding: 18px;
+    }
+
+    .names-card div {
+        font-size: 16px;
+    }
+
+    #love h1 {
+        font-size: 48px;
+    }
+}
